@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion</title>
+  <script src="./build/main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/6b4de952c8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="container">
+    <header class="header">
+      <h1 class="title">Motion</h1>
+      <ul class="list">
+        <li class="menu image">IMAGE</li>
+        <li class="menu video">VIDEO</li>
+        <li class="menu note">NOTE</li>
+        <li class="menu task">TASK</li>
+      </ul>
+    </header>
+    <div class="content">
+      <div class="modal">
+        <button class="modal_close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal_menu">
+          <h1 class="modal_title">Title</h1>
+          <input class="modal_input" type="text">
+          <h1 class="modal_title">Url</h1>
+          <input class="modal_input" type="text">
+        </div>
+        <button class="modal_button">Add</button>
+      </div>
+      <div class="image"></div>
+      <div class="video"></div>
+      <div class="note"></div>
+      <div class="task"></div>
+    </div>
+  </section>
+</body>
+</html>
