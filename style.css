@@ -61,7 +61,6 @@ body{
 }
 
 .content{
-  width: 95%;
   height: 520px;
 }
 
@@ -92,19 +91,18 @@ body{
  cursor: pointer;
 }
 
-.modal_title {
+.modal_title, .modal_url {
   font-size:1em;
   text-align: left;
   margin-left: 20px;
 }
 
-.modal_input {
-  width:90%;
+.title, .url {
   height: 25px;
   font-size: 1.3em;
 }
 
-.modal_input:focus {
+.titlet:focus, .url:focus {
   outline: none;
 }
 
@@ -115,4 +113,54 @@ body{
   background-color: var(--accent-color);
   border: 0px;
   padding: 5px;
+  cursor: pointer;
+}
+
+.card{
+  background-color:var(--border-color);
+  width: 500px;
+  height: 200px;
+  margin:10px auto;
+  display: flex;
+  border: solid white 1px;
+}
+
+.card-img {
+  width: 200px;
+  height: 150px;
+  margin: 22px;
+}
+
+.divide {
+  width:1px;
+  height:80%;
+  background-color:white;
+  align-self: center;
+  margin-left: 30px;
+}
+
+.text{
+  margin: 0px 50px;
+  align-self: center;
+  color:white;
+  font-size: 1.5em;
+}
+
+.close {
+  margin: 10px 0px;
+  border: 0px;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-size: 1.2em;
+}
+
+.close:hover {
+ cursor: pointer;
+}
+
+
+@media screen and (max-width:768px) {
+  .modal{
+    left: 120px;
+  }
 }
