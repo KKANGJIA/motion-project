@@ -13,20 +13,26 @@
   --translucent-black: #00000099;
 }
 
+html, body{
+  width:100%;
+  height: 100%;
+}
+/* 원인 : %는 상대적인 값인데 DIV의 Height값에 %를 적용하면 기준으로 삼을 상위 태그의 Height값이 없기 때문에 적용이 되지 않음
+해결 : 최상위 태그인 에 기준으로 삼을 height 값을 설정함으로써 해결할 수 있음 */
+
 body{
-  height: 710px;
   background-image: url('./cool-background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: 100%;
   margin: 0px;
   display: flex;
 }
 
 .container{
+  height: 100vh;
   display: flex;
   flex-direction: column;
   width: 800px;
-  height: 700px;
   margin:auto;
   background-color: var(--document-bg-color);
 }
@@ -91,18 +97,18 @@ body{
  cursor: pointer;
 }
 
-.modal_title, .modal_url {
+.modal_title, .modal_article {
   font-size:1em;
   text-align: left;
   margin-left: 20px;
 }
 
-.title, .url {
+.titleValue, .article {
   height: 25px;
   font-size: 1.3em;
 }
 
-.titlet:focus, .url:focus {
+.titleValuetfocus, .article:focus {
   outline: none;
 }
 
@@ -158,6 +164,31 @@ body{
  cursor: pointer;
 }
 
+
+.card-note{
+  background-color : transparent;
+  width : 200px;
+  color : white;
+  font-size : 1.5em;
+  padding:30px;
+}
+
+.card-video {
+  width : 250px;
+  height : 200px;
+}
+
+.card-lists {
+  width : 200px;
+  padding:20px;
+}
+
+.card-list {
+  color : white;
+  font-size : 1.5em;
+  padding:10px;
+  margin: 30px;
+}
 
 @media screen and (max-width:768px) {
   .modal{
