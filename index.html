@@ -5,35 +5,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motion</title>
-  <script type="module" src="./vanila.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <script type="module" src="./build/app.js" defer></script>
+  <!-- <script type="module" src="./build/components/page.js" defer></script> -->
+  <link rel="stylesheet" href="./style/style.css">
   <script src="https://kit.fontawesome.com/6b4de952c8.js" crossorigin="anonymous"></script>
+  <!-- defer로 비동기적으로 받아올 수 있도록 -->
 </head>
 <body>
-  <div class="container">
+  <div class="app">
     <header class="header">
       <h1 class="title">Motion</h1>
       <ul class="list">
-        <li class="menu image">Image</li>
-        <li class="menu video">Video</li>
-        <li class="menu note">Note</li>
-        <li class="menu task">Task</li>
+        <li id="new-image" class="menu image">Image</li>
+        <li id="new-video" class="menu video">Video</li>
+        <li id="new-note" class="menu note">Note</li>
+        <li id="new-task" class="menu task">Task</li>
       </ul>
     </header>
-    <div class="content">
-      <div class="modal">
-        <button class="modal_close">
+    <main class="document">
+      <div class="dialog">
+        <button class="dialog_close">
           <i class="fas fa-times"></i>
         </button>
-        <div class="modal_menu">
-          <h1 class="modal_title">Title</h1>
+        <div class="dialog_menu">
+          <h1 class="dialog_title">Title</h1>
           <input class="titleValue" type="text">
-          <h1 class="modal_article"></h1>
+          <h1 class="dialog_article"></h1>
           <input class="article" type="text">
         </div>
-        <button class="modal_button">Add</button>
+        <button class="dialog_button">Add</button>
       </div>
-    </div>
+    </main>
   </div>
+  <footer class="footer">
+    <p>code your dream</p>
+  </footer>
 </body>
 </html>
+
+
+

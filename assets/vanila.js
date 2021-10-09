@@ -5,51 +5,52 @@ const $image = document.querySelector('.image');
 const $video = document.querySelector('.video');
 const $task = document.querySelector('.task');
 const $note = document.querySelector('.note');
-const $modal = document.querySelector('.modal');
-const $modalArticle = document.querySelector('.modal_article');
-const $modalCloseBtn = document.querySelector('.modal_close');
+const $dialog = document.querySelector('.dialog');
+const $dialogArticle = document.querySelector('.dialog_article');
+const $dialogCloseBtn = document.querySelector('.dialog_close');
 const $title = document.querySelector('.title');
 const $titleValue = document.querySelector('.titleValue');
 const $article = document.querySelector('.article');
-const $content = document.querySelector('.content');
-const $modalButton = document.querySelector('.modal_button');
+const $page = document.querySelector('.page');
+const $dialogButton = document.querySelector('.dialog_button');
 
 import Youtube from './youtube.js';
 //별도의 번들링 없이 ESModule을 사용해 import 할때 확장자를 쓰지 않으면 에러가 발생한다!!!!!!!!!
 // 평소 React 환경에서 webpack 번들링을 통해 ESModule을 사용할 때는 확장자 없이 import 를 했음
 
 const youtube = new Youtube();
+youtube.mostPopular('https://www.youtube.com/watch?v=1sTc7I20u3A');
 
 // 각 메뉴에 모달창 연결
 $menus.forEach(menu => {
   menu.addEventListener('click', event => {
-    $modal.style.display = 'block';
+    $dialog.style.display = 'block';
     if(event.target.textContent === 'Image' ) {    
-      $modalArticle.textContent = 'Url'
-      $modalButton.dataset.name = 'image';
+      $dialogArticle.textContent = 'Url'
+      $dialogButton.dataset.name = 'image';
     }
     if(event.target.textContent === 'Video' ) {    
-      $modalArticle.textContent = 'Url'
-      $modalButton.dataset.name = 'video';
+      $dialogArticle.textContent = 'Url'
+      $dialogButton.dataset.name = 'video';
     }
     else if (event.target.textContent === 'Task'){
-      $modalArticle.textContent = 'Body'
-      $modalButton.dataset.name = 'task';
+      $dialogArticle.textContent = 'Body'
+      $dialogButton.dataset.name = 'task';
     } 
     else if (event.target.textContent === 'Note') {
-      $modalArticle.textContent = 'Body'
-      $modalButton.dataset.name = 'note';
+      $dialogArticle.textContent = 'Body'
+      $dialogButton.dataset.name = 'note';
     }
   });
 });
 
 //모달창 끄기
-$modalCloseBtn.addEventListener('click', () => {
-  $modal.style.display = 'none';
+$dialogCloseBtn.addEventListener('click', () => {
+  $dialog.style.display = 'none';
 });
 
 //왜 이미지만 인식하는거니 왜애
-$modalButton.addEventListener('click', event => {
+$dialogButton.addEventListener('click', event => {
   if(event.target.dataset.name === 'image'){
     createImage();
     $titleValue.value = '';
@@ -69,7 +70,7 @@ $modalButton.addEventListener('click', event => {
   } else {
     throw new Error('무슨 이벤트인데?')
   }
-  $modal.style.display = 'none';
+  $dialog.style.display = 'none';
 });
 
 // 모달창으로 카드만들기
@@ -97,7 +98,7 @@ function createTask(){
                   <i class="fas fa-times"></i>
                 </button>`;
   card.innerHTML += close;
-  $content.appendChild(card);
+  $page.appendChild(card);
   
   id++;
 }
@@ -123,7 +124,7 @@ function createImage(){
                   <i class="fas fa-times"></i>
                 </button>`;
   card.innerHTML += close;
-  $content.appendChild(card);
+  $page.appendChild(card);
   
   id++;
 }
@@ -153,7 +154,7 @@ function createVideo(){
                   <i class="fas fa-times"></i>
                 </button>`;
   card.innerHTML += close;
-  $content.appendChild(card);
+  $page.appendChild(card);
   
   id++;
 }
@@ -176,7 +177,7 @@ function createNote(){
                   <i class="fas fa-times"></i>
                 </button>`;
   card.innerHTML += close;
-  $content.appendChild(card);
+  $page.appendChild(card);
   
   id++;
 }

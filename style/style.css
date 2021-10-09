@@ -13,26 +13,28 @@
   --translucent-black: #00000099;
 }
 
-html, body{
-  width:100%;
-  height: 100%;
+*{
+  outline: none;
+  box-sizing: border-box;
 }
-/* 원인 : %는 상대적인 값인데 DIV의 Height값에 %를 적용하면 기준으로 삼을 상위 태그의 Height값이 없기 때문에 적용이 되지 않음
-해결 : 최상위 태그인 에 기준으로 삼을 height 값을 설정함으로써 해결할 수 있음 */
 
 body{
-  background-image: url('./cool-background.png');
-  background-repeat: repeat;
-  background-size: 100%;
+  /* background: url('../assets/cool-background.png') center/cover no-repeat; */
   margin: 0px;
-  display: flex;
-}
-
-.container{
-  height: 100vh;
+  height: 100%; 
+  /* overflow: hidden; */
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  width: 800px;
+}
+
+.app{
+  width: 100%;
+  height: 100%;
+  /* 1000px이 되면 더이상 크기가 늘어나지 않도록 설정 */
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
   margin:auto;
   background-color: var(--document-bg-color);
 }
@@ -66,11 +68,11 @@ body{
   font-size: 0.9em;
 }
 
-.content{
-  height: 520px;
+.document{
+  height: 100%;
 }
 
-.modal{
+.dialog{
   top:300px;
   left: 620px;
   position: absolute;
@@ -82,7 +84,7 @@ body{
   display: none;
 }
 
-.modal_close {
+.dialog_close {
   position:absolute;
   right: 10px;
   margin: 10px 0px;
@@ -93,11 +95,11 @@ body{
 
 }
 
-.modal_close:hover {
+.dialog_close:hover {
  cursor: pointer;
 }
 
-.modal_title, .modal_article {
+.dialog_title, .dialog_article {
   font-size:1em;
   text-align: left;
   margin-left: 20px;
@@ -112,7 +114,7 @@ body{
   outline: none;
 }
 
-.modal_button{
+.dialog_button{
   position:absolute;
   right: 25px;
   margin-top: 30px;
@@ -190,8 +192,14 @@ body{
   margin: 30px;
 }
 
+.footer{
+  text-align : center;
+}
+
+
+
 @media screen and (max-width:768px) {
-  .modal{
+  .dialog{
     left: 120px;
   }
 }
