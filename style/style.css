@@ -22,7 +22,7 @@ body{
   /* background: url('../assets/cool-background.png') center/cover no-repeat; */
   margin: 0px;
   height: 100%; 
-  /* overflow: hidden; */
+  overflow-y: auto;
   justify-content: center;
   display: flex;
   flex-direction: column;
