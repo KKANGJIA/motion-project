@@ -14,12 +14,10 @@ export class VideoComponent extends BaseComponent<HTMLVideoElement> {
     //사용자가 입력한 정보 그대로 사용하면 안되다고....제발...
     const iframe = this.element.querySelector('.card-video')! as HTMLIFrameElement;
     // iframe.src = this.coverToEmbededURL(url);  
-    iframe.src = this.changeEmbeded(url);  
-
-   
+    iframe.src = this.changeEmbeded(url);
   }
 
-  //사용자에게 받은 url 임베디드용으로 변경
+  //사용자에게 받은 url을 임베디드용으로 변경
   private changeEmbeded(url: string): string {
     let watch = 'watch?v='; // 동영상 재생에 필요없는 문자열 
     const find = url.indexOf('='); // 위치 찾아서

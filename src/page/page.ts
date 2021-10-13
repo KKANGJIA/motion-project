@@ -4,7 +4,13 @@ export interface Composable {
   addChild(child: Component): void;
 }
 
+//단순히 닫혔다고 얘기하는 아이
+type OnCloseListener = () => void;
+
 class PageItemComponent extends BaseComponent<HTMLElement> implements Composable {
+  // 콜백함수를 저장하고 있을 아이
+  private closeListener?: OnCloseListener;
+  
   constructor(){
     super(`<li class="page-item">
             <section class="page-item__body"></section>
@@ -12,11 +18,24 @@ class PageItemComponent extends BaseComponent<HTMLElement> implements Composable
               <button class="close">&times;</button>
             </div>
           </li>`)
-  }
 
+    // 돔을 조작하여 만든 삭제 기능
+    // const deleteButton = this.element.querySelector('.close')! as HTMLButtonElement;
+    // deleteButton.addEventListener('click', () => this.element.remove());
+    
+    const closeBtn = this.element.querySelector('.close')! as HTMLButtonElement;
+    closeBtn.onclick = () => {
+      this.closeListener && this.closeListener();
+    }
+  }
   addChild(child: Component) {
     const container = this.element.querySelector('.page-item__body')! as HTMLElement;
     child.attachTo(container);
+  }
+
+  // 설정할 수 있는 외부함수 만들기
+  setOnCloseListener(listener: OnCloseListener) {
+    this.closeListener = listener;
   }
 }
 
@@ -45,6 +64,10 @@ export class PageComponent extends BaseComponent<HTMLUListElement> implements Co
     item.addChild(section);
     //만든 아이탬을 현재 element애 붙여줌
     item.attachTo(this.element, 'beforeend');
+    item.setOnCloseListener(() => {
+      //close가 클릭되면 지금 페이지로부터 제거할거다
+      item.removeFrom(this.element);
+    })
   }
 }
 
